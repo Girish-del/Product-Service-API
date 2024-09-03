@@ -2,6 +2,7 @@ package com.girish.product.service.api.controller;
 
 import com.girish.product.service.api.dto.ProductRequest;
 import com.girish.product.service.api.dto.ProductResponse;
+import com.girish.product.service.api.model.Product;
 import com.girish.product.service.api.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -18,8 +19,8 @@ public class ProductController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void createProduct(@RequestBody ProductRequest productRequest){
-        productService.createProduct(productRequest);
+    public ProductResponse createProduct(@RequestBody ProductRequest productRequest){
+        return productService.createProduct(productRequest);
     }
 
     @GetMapping
